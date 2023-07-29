@@ -1,6 +1,18 @@
 from django.shortcuts import render
 
-# Define the home view
+finches = [
+  {'name': 'Rosey', 'breed': 'House Finch', 'description': 'Rose colored finch', 'age': 3},
+  {'name': 'Feather', 'breed': 'Pine Siskin', 'description': 'Migratory bird', 'age': 2},
+]
+
+# Create your views here.
 def home(request):
-  # Include an .html file extension - unlike when rendering EJS templates
   return render(request, 'home.html')
+
+def about(request):
+  return render(request, 'about.html')
+
+def finches_index(request):
+  return render(request, 'finches/index.html', {
+    'finches': finches
+  })
